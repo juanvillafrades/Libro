@@ -1,0 +1,40 @@
+\newpage
+%\thispagestyle{empty}
+%\pagestyle{ruled}
+%\thispagestyle{myheadings}
+\markright{Resumen}
+%\part{RESUMENES}
+\begin{center}
+\begin{Large}
+%\chapter*{RESUMEN DEL TRABAJO PROPUESTO}
+\textbf{Resumen}
+\end{Large}
+\end{center}
+
+
+\noindent \textbf{Título:} Diseño e implementación de un sistema de caracterización para los fotomultiplicadores de silicio (SiPM) del telescopio de muones (MuTe)\footnotemark[1].\\ 
+
+\noindent \textbf{Autor}: \insertautoruno \footnotemark[2].  \\    
+
+ 
+\noindent \textbf{Palabras Clave:} Fotomultiplicadores de silicio, dependencia de temperatura, fotón-equivalente, controlador PID, voltaje de ruptura, conteo oscuro, crosstalk, afterpulse.\\
+
+%%%%%%%%%%%%%%%%	  DESCRIPCIÓN      %%%%%%%%%%%%%
+%\begin{tabular}{ p{15.5cm} }
+%\hline
+\noindent \textbf{Descripción}\\
+El proyecto MuTe (Muon Telescope) busca poner en funcionamiento un telescopio que permita ejecutar la muongrafía de volcanes en Colombia. Los fotomultiplicadores de silicio, se utilizan en MuTe para detectar los fotones generados por centelladores al paso de partículas cargadas. La implementación de tres módulos electrónicos de caracterización, tiene como objetivo conocer cómo la temperatura y el sobre-voltaje afectan el desempeño de estos dispositivos. En este trabajo se muestran los circuitos electrónicos diseñados para cada módulo, así como sus configuraciones experimentales para la caracterización del voltaje de ruptura, la ganancia, conteo oscuro, \textit{crosstalk} y \textit{afterpulses}, al igual que la obtención de los histogramas de carga, de pico y el valor de un fotón-equivalente.\\
+Con el fin de validar los módulos desarrollados y los protocolos de caracterización utilizados, se estudiaron los SiPM S13360-1350CS de Hamamatsu y el CPTA 151. Los resultados más relevantes son la obtención de los coeficientes de temperatura para el voltaje de ruptura y la tasa de conteo oscuro en función del umbral de discriminación, así como la probabilidad de \textit{crosstalk} y \textit{aterpulse}. \\
+Estos resultados implican que se debe monitorear la temperatura a la que están operando los SiPMs en MuTe, para, a partir del coeficiente de temperatura, realizar la corrección en el voltaje de polarización. Establecer un umbral de discriminación mayor a 5 fotones-equivalentes para los eventos que se registran, con el fin de filtrar el ruido asociado con la tasa de conteo oscuro, \textit{crosstalk} y \textit{afterpulse}.   
+
+
+%\\[0.1cm] %\hline
+%\end{tabular}
+			
+				
+\footnotetext[1]{Trabajo de Grado}
+\footnotetext[2]{Facultad de Ingenierías Físico-Mecánicas.  Escuela de Ingenierías Eléctrica, Electrónica y  de Telecomunicaciones. Director: \insertdirector. Codirector: \insertcodirector.} 
+%\footnotetext[3]{Estudiante de Ingeniería Electrónica de la Universidad Industrial de Santander. Código: \insertcodigodos .} 
+%\footnotetext[4]{Estudiante de Ingeniería Electrónica de la Universidad Industrial de Santander. Código: \insertcodigouno .} 
+
+%%%%%%%%%%%%%%%%

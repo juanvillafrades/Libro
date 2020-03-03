@@ -1,0 +1,23 @@
+\tableofcontents
+
+\cleardoublepage
+% \addcontentsline{toc}{chapter}{Índice de figuras} % para que aparezca en el indice de contenidos
+{%
+\let\oldnumberline\numberline%
+\renewcommand{\numberline}{\figurename~\oldnumberline}%
+\listoffigures%
+}
+
+\cleardoublepage
+% \addcontentsline{toc}{chapter}{Índice de tablas} % para que aparezca en el indice de contenidos
+%\listoftables
+
+{%
+\let\oldnumberline\numberline%
+\renewcommand{\numberline}{\tablename~\oldnumberline}%
+\listoftables%
+}
+
+%\newpage
+%%\listappendices
+%\listofappendix
