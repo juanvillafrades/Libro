@@ -1,7 +1,7 @@
-\chapter{Resultados}
+\chapter{RESULTADOS}
 En esta sección se presentan los resultados de la caracterización del voltaje de ruptura, ganancia, conteo oscuro, \textit{crosstalk} y \textit{afterpulses} en función de la temperatura y del sobre-voltaje, para los SiPMs S13360-1350CS de Hamamatsu y CPTA 151.   
 \label{Cap:Caracterizacion}
-\section{Sensores estudiados.}
+\section{SENSORES ESTUDIADOS}
 Los módulos electrónicos desarrollados en este trabajo se utilizaron para caracterizar los principales parámetros de rendimiento de SiPMs en general. En este caso se eligieron dos SiPM a caracterizar: el SiPM S13360-1350CS y el CPTA 151.
 \begin{figure}[h!]
 \begin{centering}
@@ -33,7 +33,7 @@ En la Tabla \ref{table_SiPMs} se muestran los principales parámetros de rendimi
     \multicolumn{1}{l}{Probabilidad de \textit{crosstalk} (\%)} & $3$                & $10$       \\ \hline
 	\end{tabular}
 \end{table}
-\section{Voltaje de ruptura}
+\section{VOLTAJE DE RUPTURA}
 El primer conjunto de mediciones, para visualizar la dependencia de la temperatura en el voltaje de ruptura, son las curvas de corriente contra voltaje (I-V) mostradas en la Fig. \ref{fig:dc} y obtenidas mediante un \textit{script} en Python \footnote{https://github.com/juanvillafrades/Caracterizacion-SiPMs/blob/master/BreakdownV.ipynb}. Estas curvas se obtienen realizando la medición de la corriente oscura (\textit{Dark current}) en los SiPM, para voltajes de operación ($V_{Bias}$) en el rango de 40 V a 60 V en el caso del SiPM de Hamamatsu y de entre 40 a 50 V para el caso del CPTA teniendo en cuenta los valores máximos recomendados por el fabricante. Estas curvas I-V se generan para temperaturas en el rango de 0 a 40 $^\circ$C, todo esto utilizando la configuración experimental mostrada en la Fig. \ref{fig:complete_system}.
 \begin{figure}[h!]
      \centering
@@ -88,7 +88,7 @@ V_{BD_{C}}(T) &=& 66.5\times10^{-3}[V/^\circ C]~T+ 43.8~[V].
         \caption{Dependencia de la temperatura para el voltaje de ruptura en los SiPM S13360-1350CS de Hamamatsu (izquierda) y CPTA 151 (derecha). Se ajustó una línea recta, cuya pendiente determina el coeficiente de temperatura para el voltaje de ruptura. Se obtuvo $41.7$ mV/$^\circ$C para el S13360-1350CS de Hamamatsu y $66.5$ mV/$^\circ$C para el CPTA 151.}
         \label{fig:Vbd_vs_T}
 \end{figure}
-\section{Ganancia}
+\section{GANANCIA}
 %Por otra parte el histograma de  carga se obtiene utilizando la configuración experimental expuesta en la figura \ref{fig:Data_system}. 
 El histograma de carga de un SiPM es una representación gráfica del comportamiento estadístico de la carga generada por sus eventos. En la Fig. \ref{fig:charge}. se observa que el histograma de carga se compone de picos característicos equidistantes relacionados con la cantidad de fotones equivalentes (p.e.), el primer pico (0 p.e.) corresponde al pedestal y no se tiene en cuenta para ninguno de los cálculos realizados. El histograma de  carga se obtiene utilizando la configuración experimental expuesta en la Fig. \ref{fig:Data_system} y a partir de la integración de los pulsos de corriente generados por el SiPM, como se muestra a continuación:
 \begin{equation}
@@ -196,7 +196,7 @@ Por otra parte, se analizó el comportamiento de la ganancia en función del sob
         \caption{Dependencia del sobre-voltaje de la ganancia en los SiPM S13360-1350CS de Hamamatsu (izquierda) y CPTA 151 (derecha) a temperatura ambiente (25 $^\circ$C).}
         \label{fig:Gain_vs_ov}
 \end{figure}
-\section{Fotón equivalente}
+\section{FOTÓN EQUIVALENTE}
 En la sección anterior se calculó la carga de un fotón equivalente (p.e.), sin embargo, es necesario determinar el equivalente en voltaje de 1 p.e. para estimar los niveles de ruido. El histograma de pico de un SiPM es una representación estadística del valor máximo de los pulsos registrados, la diferencia promedio entre los picos de este histograma determina el equivalente de 1 p.e. como se muestra en la Fig. \ref{fig:peak}. En este caso para una temperatura de 25 $^\circ$C y unos voltajes de polarización de 56 V para el SiPM S13360-1350CS de Hamamatsu y 53 V para el  CPTA 151 un p.e. corresponde a $13.67~\mbox{mV}$ y $12.09~\mbox{mV}$ respectivamente.    
 \begin{figure}[h!]
      \centering
@@ -237,7 +237,7 @@ Finalmente, en la Fig. \ref{fig:PDF} se muestra la forma de los pulsos de voltaj
         \label{fig:PDF}
 \end{figure}
 
-\section{Tasa de conteo oscuro}
+\section{TASA DE CONTEO OSCURO}
 Para la caracterización de la tasa de conteo oscuro (DCR) en función de la temperatura se utilizó un voltaje de polarización de $56~\mbox{V}$ y $53 ~\mbox{V}$ para el SiPM de Hamamatsu y CPTA respectivamente. Asimismo, el cálculo del DCR para cada una de las temperaturas de estudio se utilizó la expresión \ref{DCR_eq} y su resultado se muestra en la Fig. \ref{fig:DCR_vs_T}, donde se observa que el SiPM de hamamatsu presenta una mayor dependencia de la temperatura en el DCR ($0.85 kHz/ ^\circ$C) con respecto al CPTA ($4.32 Hz/ ^\circ$C). 
 \begin{figure}[h!]
      \centering
@@ -297,7 +297,7 @@ Finalmente, se establecieron diferentes umbrales en el rango de $0.1$ p.e. a $3.
         \caption{Tasa de conteo oscuro en función de un umbral de $0.1$ p.e. a $3.1$ p.e. para tres voltajes de polarización: 54 V, 55 V y 56 V para el SiPM S13360-1350CS de Hamamatsu (izquierda) y 51 V, 52 V y 53 V para el CPTA 151 (derecha).}
         \label{fig:DCR_vs_th}
 \end{figure}
-\section{Crosstalk y Afterpulses}
+\section{CROSSTALK Y AFTERPULSES}
 Para calcular de la probabilidad del \textit{crosstalk} y  \textit{afterpulses} se estableció la temperatura a 25 $^\circ$C y el voltaje de polarización a  $56~\mbox{V}$ para el SiPM de Hamamatsu y $53~\mbox{V}$ para el CPTA. En la Fig. \ref{fig:NoiseP} se muestra un conjunto de 150 pulsos, cada pulso es dividido en tres partes, antes, durante y después de la estimulación. Estas ventanas de tiempo se utilizan en las expresiones \ref{CT_eq} y \ref{AP_eq} para realizar el cálculo \textit{crosstalk} y  \textit{afterpulses}. En la tabla \ref{AP_CT} se muestra la probabilidad de los ruidos correlacionados, siendo más alta la probabilidad de  \textit{crosstalk} y  \textit{afterpulses} en SiPM CPTA 151.   
 \begin{figure}[h!]
 \begin{centering}

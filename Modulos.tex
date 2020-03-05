@@ -1,7 +1,7 @@
-\chapter{Módulos de medición}
+\chapter{MÓDULOS DE MEDICIÓN}
 \label{Cap:Modulos}
 Actualmente los SiPM juegan un importante rol en el campo de la física de altas energías \citep{Intro_SIPM_Sensl}, su estudio y caracterización toma cada vez más relevancia. Sin embargo, los equipos electrónicos para realizar dichos procedimientos son muy costosos y de difícil acceso, es por eso que en este proyecto se propone desarrollar un conjunto de módulos enfocados en la caracterización del voltaje de ruptura, la ganancia, el equivalente de un fotoelectrón y el ruido de SiPMs.  
-\section{Voltaje de ruptura en función de la temperatura}
+\section{VOLTAJE DE RUPTURA EN FUNCIÓN DE LA TEMPERATURA}
 Para la caracterización del voltaje de ruptura y de otros parámetros de rendimiento de los SiPMs que dependen de la temperatura, fue necesario diseñar e implementar un sistema de temperatura controlada. Este sistema está compuesto de celdas Peltier y un control que efectúa el calentamiento y la refrigeración del interior de una caja donde se ubica el SiPM a caracterizar.\\ \\
 Por otra parte, debido a que el  voltaje de ruptura se obtiene a partir de la corriente oscura fue necesario diseñar e  implementar un circuito para medir la corriente del SiPM (del orden de nA) basado en un amplificador de transimpedancia (TIA). La polarización del SiPM se realizó mediante el módulo C11204-01 de Hamamatsu \citep{Driver_mppc}. En la figura \ref{fig:complete_system} se muestra el sistema completo utilizado para el proceso de caracterización del voltaje de ruptura.
 \begin{figure}[h!]
@@ -478,7 +478,7 @@ Asimismo, en la figura \ref{fig:interfase} se muestra la interfaz  gráfica del 
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Módulo de caracterización del fotón equivalente y la ganancia.}
+\section{MÓDULO DE CARACTERIZACIÓN DEL FOTÓN EQUIVALENTE Y LA GANANCIA.}
 Para obtener el fotón equivalente (p.e.) y la ganancia del los SiPMs es necesario generar los histogramas de pico y de carga. Estos histogramas se pueden obtener mediante el análisis de los pulsos del SiPM cuando se realiza una estimulación controlada del dispositivo utilizando una fuente de luz pulsada.\\ \\
 El histograma de pico representa gráficamente la frecuencia de ocurrencia de eventos con determinados valores máximos de voltaje, este histograma se caracteriza por tener picos que representan el número de fotones equivalentes, por consiguiente 1 p.e. está definido como la distancia entre dos picos consecutivos. Por otra parte, el histograma de carga se obtiene al realizar la integración numérica de los pulsos de corriente del SiPM, la diferencia entre los picos de este histograma es la carga en Coulombs de un pulso Geiger. Esta carga está directamente relacionada con la ganancia mediante la expresión \ref{Gain_eq}.       
 \subsection{Fuente de luz pulsada.}
@@ -546,7 +546,7 @@ La configuración experimental utilizada para el registro de datos se muestra en
   \par\end{centering}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Ruido en SiPMs}
+\section{RUIDO EN SIPMS}
 Tanto el ruido correlacionado (\textit{crosstalk} y \textit{afterpulses}) como el no correlacionado (DCR) se obtienen del procesamiento de los datos registrados a partir de la configuración experimental mostrada en la fig. \ref{fig:Data_system}. El análisis de estos datos se realizó utilizando Python dentro del entorno de trabajo Jupyter\footnote{https://github.com/juanvillafrades/Caracterizacion-SiPMs/blob/master/Noise.ipynb}. Este procesamiento, consiste en primera medida, en un algoritmo que realiza un filtrado de los pulsos eliminando cualquier tipo de ruido debido a interferencias electromagnéticas, posteriormente se realiza una corrección de linea base (\textit{offset}) como se muestra en la fig. \ref{fig:PulsesNoise}.  
 \begin{figure}[h!]
      \centering

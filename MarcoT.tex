@@ -1,7 +1,7 @@
 %%%% Marco teórico
 %\setcounter{chapter}{1} % para comenzar a partir del capitulo 2
 
-\chapter{Fotomultiplicadores de silicio}
+\chapter{FOTOMULTIPLICADORES DE SILICIO}
 \label{Cap:MarcoT}
 Los fotomultiplicadores de silicio son fotodetectores de estado sólido, comúnmente llamados contadores de fotones, abordan el desafío de la detección y cuantización de señales lumínicas del orden de hasta un fotón \citep{Intro_SIPM_Sensl}. Estos dispositivos han desplazado a los tubos fotomultiplicadores (PMTs) que por mucho tiempo cumplieron esta función \citep{MPPC_note}. Los SiPMs se componen de múltiples pixeles APDs (fotodiodos de avalancha) operando en modo Geiger \citep{Apd_Hamamatsu}. En este capítulo se describe el principio de funcionamiento de los APD y se estudian las características principales de los SiPMs.
 % \section{Semiconductores}
@@ -15,7 +15,7 @@ Los fotomultiplicadores de silicio son fotodetectores de estado sólido, comúnm
 %     \par\end{centering}
 % \end{figure}
 %\section{El telescopio de muones (MuTe)}
-\section{Unión PN}
+\section{UNIÓN PN}
 Es la estructura fundamental de los dispositivos semiconductores, su estudio permite comprender el funcionamiento de los SiPMs. Esta unión se forma al combinar en una región un material tipo P con otro tipo N. En la interfaz entre estas secciones se genera un gradiente de concentraciones de huecos y electrones y aparece una corriente de difusión que hace que los electrones de la zona N se desplacen a la zona P y los huecos de la zona P vayan a la zona N. El proceso de esta recombinación en la unión PN genera la llamada zona de deflección y las cargas agrupadas en esta zona generan un campo eléctrico que se opone a la corriente de difusión y hace que la unión entre en equilibrio, como se muestra en la fig. \ref{fig:PNjuntion}.
 \begin{figure}[h!]
 \begin{centering}
@@ -44,7 +44,7 @@ Existen diferentes formas para que se creen un par de portadores de carga dentro
 % La expresión anterior es importante porque la capacitancia de la unión representa una fuente de ruido; por ejemplo, el ruido térmico asociado a esta aumenta de forma inversamente proporcional a la capacitancia, sin embargo el ancho de banda se reduce y la respuesta en frecuencia mejora.\\
 % Al realizar una polarización inversa de la unión PN se reduce la calidad de la respuesta en frecuencia del fotodiodo, para solucionar esta deficiencia se agrega un semiconductor intrínseco entre las regiones P y N, formando lo que se conoce como fotodiodo PIN, en este fotodiodo la capacitancia en la zona de deflección se reduce con respecto a el fotodiodo PN, lo que genera un incremento en el ancho de banda y hace de este tipo de fotodiodo una buena opción para trabajar con señales de alta frecuencia. Sin embargo, al tener una ganancia unitaria la cantidad de fotones detectados deben ser lo suficientemente grande para generar una corriente eléctrica de una amplitud medible.
 % A continuación se estudian un tipo de detectores que tienen una ganancia intrínseca y que se pueden utilizar para la detección de señales lumínicas del orden de un par de fotones.         
-\section{Estructura GAPD}
+\section{ESTRUCTURA GAPD}
 Cuando aumenta el voltaje inverso aplicado en la unión PN, también lo hace el campo eléctrico en la región de deflección. Por este motivo, los pares electrón-hueco generados en esta región colisionan con los átomos del material desprendiendo más electrones por ionización de impacto y generando una amplificación de carga mediante una reacción en cadena, conocida como \textit{avalancha}. Los dispositivos que funcionan bajo este principio se llaman fotodiodos de avalancha (APDs) y la corriente que generan es proporcional a la cantidad de fotones incidentes. \\ \\
 % \begin{figure}[h!]
 % \begin{centering}
@@ -87,7 +87,7 @@ donde, $V_d$ es el voltaje en el capacitor, $R_q$ es la resistencia de apagado y
 \end{figure}
 \\ \\
 En la figura \ref{fig:APD_response} se observa la respuesta en el tiempo de $I_d$, esta repuesta está determinada por las contantes de tiempo de carga y descarga  $R_s C_d$ y $R_q C_d$ respectivamente.\\    
-\section{El Fotomultiplicador de Silicio}
+\section{EL FOTOMULTIPLICADOR DE SILICIO}
 % Los fotomultiplicadores de silicio han tomado cada vez más importancia en aplicaciones científicas e industriales \citep{Blue_SIPM}. Sus usos más conocidos son en los campos de Imágenes médicas \citep{SiPM_PET} , biofotónica \citep{SiPM_bio, SiPM_bio2}, LIDAR \citep{SiPM_Lidar, SiPM_3D_img} y física de altas energías  \citep{Mute_oficial, minimute}. Las principales ventajas de los SiPMs son su alta eficiencia, bajo voltaje de operación, bajo consumo de potencia y robustez mecánica.\\
 Como se mencionó en la sección anterior, a partir de un GAPD no se puede determinar el número de fotones que generan un evento o avalancha. Por el contrario, un SiPM sí puede determinar el número de fotones que inciden en el dispositivo, puesto que utiliza una matriz de píxeles, donde cada píxel es un  GAPD en serie con una resistencia de apagado. \\ \\
 Como estos píxeles se encuentran conectados en paralelo la respuesta del SiPM es la suma de las avalanchas generadas por cada píxel activado, lo que produce una salida que es directamente proporcional al número de fotones incidentes, siempre y cuando este número no sea superior al número de píxeles con que cuenta el SiPM. El pulso de menor amplitud que se puede observar a la salida de un SiPM es conocido como fotón equivalente (p.e.) y es un parámetro que experimentalmente se utiliza para determinar la ganancia, conteo oscuro, \textit{crosstalk} y \textit{afterpulse} de un SiPM.

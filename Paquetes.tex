@@ -35,7 +35,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\renewcommand{\theequation}{\arabic{equation}} %modifica la forma en la que se enumeran las ecuaciones
 
-%\renewcommand{\thefigure}{\arabic{figure}} %modifica la forma en la que se enumeran las figuras
+% Librería para nombres en listas y configuración de alineación izquierda
+% y un solo punto antes de la descripción
+% ------------------------------------------------------------------------
+\usepackage[labelsep=period]{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\renewcommand{\thefigure}{\arabic{figure}} %modifica la forma en la que se enumeran las figuras
 % ------------------------------------------------------------------------
 % Definición para formato en nombres de figuras
 % ------------------------------------------------------------------------
@@ -52,7 +57,9 @@
 
 % Para alinear el indice de contenidos a la izquierda
 \usepackage{tocloft}
-
+% Elimina rellenado con puntos en la tabla de contenidos
+% ------------------------------------------------------------------------
+\renewcommand{\cftdot}{ }
 %lista de anexos
 \newcommand{\listappendixname}{\hfill \Large Índice de Anexos \hfill}
 \newlistof{appendix}{app}{\listappendixname}
@@ -115,7 +122,9 @@
 \setcounter{tocdepth}{4}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% Elimina indentación o sangría al inicio de un párrafo
+% ------------------------------------------------------------------------
+\setlength\parindent{0pt}
 \onehalfspacing
 %\doublespacing
 
@@ -165,22 +174,24 @@
 % \vspace{-0.5ex}%
 % \rule{\textwidth}{2pt}
 % ] % after-code
-
-\titleformat
-{\chapter} % command
-[display] % shape
-{\bfseries\Large\itshape} % format
-{\hfill Capítulo \thechapter \hfill} % label
-{0ex} % sep 
-{
-    %\rule{\textwidth}{0pt}
-    \vspace{0ex}
-    \centering
-} % before-code
-[
-\vspace{-0.5ex}% 
-\rule{\textwidth}{0pt}
-] % after-code
+\usepackage{chngcntr}
+\titleformat{\chapter}{\normalfont\normalsize\bfseries\centering}{\thechapter. }{0pt}{}
+\titlespacing{\chapter}{0pt}{0pt}{20pt}
+% \titleformat
+% {\chapter} % command
+% [display] % shape
+% {\bfseries\Large\itshape} % format
+% {\hfill  Capítulo \thechapter \hfill} % label
+% {0ex} % sep 
+% {
+%     %\rule{\textwidth}{0pt}
+%     \vspace{0ex}
+%     \centering
+% } % before-code
+% [
+% \vspace{-0.5ex}% 
+% \rule{\textwidth}{0pt}
+% ] % after-code
 
 %Definición de los símbolos para listas itemizadas:
 % \AtBeginDocument{
@@ -240,8 +251,11 @@
 
 \usepackage{amssymb} 
 
-%\usepackage{subfig} %Para poner varias figuras en 1 sola
+% Librerías que permiten modificar atributos de la tabla de contenido
+% ------------------------------------------------------------------------
+\usepackage{titletoc}
 \usepackage[subfigure]{tocloft}
+
 %%%%%%%%%%%%%% REFERENCIAS %%%%%%%%%%%
 
 %\usepackage{cite} % para contraer referencias
