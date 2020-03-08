@@ -1,4 +1,18 @@
 \renewcommand*\contentsname{TABLA DE CONTENIDO}
+\renewcommand{\listfigurename}{LISTA DE FIGURAS}
+\renewcommand{\listtablename}{LISTA DE TABLAS}
+% ------------------------------------------------------------------------
+% Elimina indentación o sangría en la tabla de contenidos
+% ------------------------------------------------------------------------
+\setlength{\cftfigindent}{0cm}
+\setlength{\cfttabindent}{0cm}
+% ------------------------------------------------------------------------
+% Ajusta contador para enumeración continua de objetos en el documento
+% ------------------------------------------------------------------------
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{footnote}{chapter}
+\counterwithout{equation}{chapter}
 \tableofcontents
 \cleardoublepage
 % \addcontentsline{toc}{chapter}{Índice de figuras} % para que aparezca en el indice de contenidos

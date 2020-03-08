@@ -6,8 +6,8 @@ Para la caracterización del voltaje de ruptura y de otros parámetros de rendim
 Por otra parte, debido a que el  voltaje de ruptura se obtiene a partir de la corriente oscura fue necesario diseñar e  implementar un circuito para medir la corriente del SiPM (del orden de nA) basado en un amplificador de transimpedancia (TIA). La polarización del SiPM se realizó mediante el módulo C11204-01 de Hamamatsu \citep{Driver_mppc}. En la figura \ref{fig:complete_system} se muestra el sistema completo utilizado para el proceso de caracterización del voltaje de ruptura.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.6\textwidth]{Images/Sistema_Completo_ruptura}
   \caption{Sistema utilizado para la caracterización del voltaje de ruptura en función de la temperatura. En este sistema se utiliza un módulo de control de temperatura y uno de medición de corriente DC.}
+  \includegraphics[width=0.6\textwidth]{Images/Sistema_Completo_ruptura}
   \label{fig:complete_system}
   \par\end{centering}
 \end{figure}
@@ -17,8 +17,8 @@ Por otra parte, debido a que el  voltaje de ruptura se obtiene a partir de la co
 El sistema de control de temperatura está compuesto por tres partes principales que se muestran en la fig. \ref{fig:Temp_system} y son descritas a continuación: un módulo Peltier encargado de disipar y generar calor en función de la temperatura objetivo, un microcontrolador Atmega 328P en el cual se implementa el controlador PID y  un puente H como interfaz entre el sistema de control y el sistema de potencia, permitiendo controlar la magnitud y la dirección de la corriente entregada a las celdas Peltier.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.6\textwidth]{Images/Sistema_termico}
     \caption{Sistema de control de temperatura. El parte superior se encuentra la caja oscura donde se ubica el SiPM, debajo están ubicadas las celdas Peltier junto a dos disipadores de calor y en la caja de aluminio se encuentra el puente H.}
+    \includegraphics[width=0.6\textwidth]{Images/Sistema_termico}
     \label{fig:Temp_system}
   \par\end{centering}
 \end{figure}
@@ -36,8 +36,8 @@ Para este trabajo se utilizó una celda Peltier TEC1-12706 \citep{datasheet_Pelt
 
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.45\textwidth]{Images/celda.JPG}
     \caption{Estructura interna de una celda Peltier. La dirección de la corriente (flecha roja) determina cuál de las caras absorbe o genera calor. Imagen adaptada de \citep{tesis_caract_SIPM}.}
+    \includegraphics[width=0.45\textwidth]{Images/celda.JPG}
     \label{fig:celda}
   \par\end{centering}
 \end{figure}
@@ -47,8 +47,8 @@ Para este trabajo se utilizó una celda Peltier TEC1-12706 \citep{datasheet_Pelt
 Para realizar el control de temperatura en el SiPM, es necesario controlar la magnitud y la dirección de la corriente que se le suministra a las celdas Peltier, por eso se utiliza  el microcontrolador Atmega 328P para generar una señal de control PWM dependiendo de la temperatura objetivo. No obstante, la señal de control no puede ser conectada directamente a los MOSFET de potencia que se utilizan en el puente H, debido a que el voltaje $V_{GS}$ necesario para que el MOSFET opere en la región de saturación y suministre la corriente necesaria a la carga (6 A) es del orden de 12 V. Por este motivo, es indispensable implementar un \textit{driver}; es decir, un circuito que realiza la conversión de los 5 V suministrados por el microcontrolador a los 12 V necesarios para que los MOSFET del puente H operen correctamente, en este caso se utilizó el chip IR2110.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.6\textwidth]{Images/Driver.JPG}
     \caption{Driver IR2110, utilizado para controlar el puente H por medio del microcontrolador Atmega 328P.}
+    \includegraphics[width=0.6\textwidth]{Images/Driver.JPG}
     \label{fig:Driver}  
   \par\end{centering}
 \end{figure}
@@ -59,8 +59,8 @@ El análisis del circuito  lo reduciremos únicamente a un IR2110, debido a que 
 \subsubsection{Puente H.}
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.8\textwidth]{Images/PuenteH.png}
     \caption{Puente H utilizado para controlar la magnitud y la  dirección de la corriente entregada a las celdas Peltier.}
+    \includegraphics[width=0.8\textwidth]{Images/PuenteH.png}
     \label{fig:PuenteH}
   \par\end{centering}
 \end{figure}
@@ -68,8 +68,8 @@ El circuito que aquí se emplea, es mostrado en la fig.  \ref{fig:PuenteH}. Inic
 Asimismo, los diodos D3, D4, D5 y D6 permiten descargar rápidamente la  capacitancia de puerta de los MOSFET. Por otra parte, las resistencias R4, R6, R12 y R14 limitan la corriente en la puerta del transistor. Además, las resistencias R5, R10 R13 y R15 actúan como resistencias de \textit{pull-down} aterrizando la puerta del MOSFET cuando se encuentra inactivo, evitando dejar en la puerta un voltaje flotante que pueda activar el MOSTET. Finalmente, los diodos D7, D8, D9 y D10 son protección contra voltajes inversos, R16, R17, R18, R19, C10, C11, C12 y C13 son  una red \textit{snubber} de tensión RC para ayudar a la conmutación de los MOSFET y suprimir los picos de voltaje. 
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.6\textwidth]{Images/Tarjeta.jpg}
   \caption{Implementación del puente H con los Drivers y demás circuitos necesarios para controlar la corriente que alimenta las celdas Peltier.}
+  \includegraphics[width=0.6\textwidth]{Images/Tarjeta.jpg}
   \label{fig:PCB}
   \par\end{centering}
 \end{figure}
@@ -78,8 +78,8 @@ Asimismo, los diodos D3, D4, D5 y D6 permiten descargar rápidamente la  capacit
 Como punto de partida, es necesario proteger las salidas del microcontrolador, por esta razón se utilizó un optoacoplador PC817, el cual consiste en un Diodo Emisor Infrarojo (IRED) que está acoplado a un fototransistor. En este caso, los pines 1 y 2 están conectados a las salidas del microcontrolador, mientras que el pin 3 está conectado a la entrada del driver IR2110. En este circuito, las resistencias R1 y R2 limitan la corriente que pasa por el IRED y por el fototransitor respectivamente, mientras que C2 ayuda a eliminar oscilaciones en el voltaje debido transitorios de conmutación. 
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.7\textwidth]{Images/Optoacoplador.png}
     \caption{Optoacopladores utilizados para asilar eléctricamente las salidas del microcontrolador y las entradas del driver.}
+    \includegraphics[width=0.7\textwidth]{Images/Optoacoplador.png}
     \label{fig:optoacoplador}
   \par\end{centering}
 \end{figure}
@@ -88,8 +88,8 @@ Como punto de partida, es necesario proteger las salidas del microcontrolador, p
 Para la polarización del optoacoplador y el nivel de referencia del voltaje  VDD del driver IR2110, fue necesario utilizar un regulador de voltaje LM7805, que a partir de 12 V permite obtener los 5 V necesarios. La topología básica, que se muestra en la fig.  \ref{fig:Regulador} la suministra el fabricante en una nota  de aplicación. 
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.35\textwidth]{Images/Regulador.png}
     \caption{Regulador de voltaje LM7805 utilizado para obtener los 5 V necesarios para polarizar en optoacoplador y suministrar el nivel de voltaje lógico de referencia al driver IR2110.}
+    \includegraphics[width=0.35\textwidth]{Images/Regulador.png}
     \label{fig:Regulador}
   \par\end{centering}
 \end{figure}
@@ -104,8 +104,8 @@ donde, $V_{out}$ es el voltaje de salida del sensor LM35 y $T$ es la temperatura
 Por otra parte, en al figura \ref{fig:TempSense} se muestra la topología utilizada para que el sensor de temperatura LM35 proporcione una salida en el rango de $-55~a ~150~ ^\circ$C. 
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.3\textwidth]{Images/TempSensor.png}
     \caption{Circuito utilizado para que el sensor de temperatura LM35 funcione en su rango completo $-55~a ~150~ ^\circ \mbox{C}$.}
+    \includegraphics[width=0.3\textwidth]{Images/TempSensor.png}
     \label{fig:TempSense}
   \par\end{centering}
 \end{figure}
@@ -113,8 +113,8 @@ Por otra parte, en al figura \ref{fig:TempSense} se muestra la topología utiliz
 El sensor de temperatura se ubicó dentro de la caja oscura, como se muestra en la fig. \ref{fig:insideBox}, muy cerca del SiPM con el fin de tener la menor diferencia de temperatura entre estos.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.5\textwidth]{Images/InsideBox.png}
     \caption{Ubicación del sensor de temperatura y del SiPM dentro de la caja oscura del sistema de control de temperatura.}
+    \includegraphics[width=0.5\textwidth]{Images/InsideBox.png}
     \label{fig:insideBox}
   \par\end{centering}
 \end{figure}
@@ -140,8 +140,8 @@ donde, $k$ es la ganancia en estado estable de la planta, $T > 0$  representa la
 Al respecto, la descripción del procedimiento se muestra en la fig. \ref{fig:Modelo_caja_negra}, donde se observa que el sistema se estimula con una señal de tipo escalón unitario, mientras se registra la temperatura en el interior de la caja, esto corresponde con la señal de salida del sistema. Además, mediante el uso de la \textit{System idetification toolbox} de Matlab\textsuperscript \textregistered $~$se identificaron las funciones de transferencia de la planta.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.7\textwidth]{Images/Modelo_caja_negra.png}
     \caption{Sistema de control de temperatura compuesto por un puente H, dos celdas Peltier y un sensor de temperatura, con una entrada de tipo escalón unitario.}
+    \includegraphics[width=0.7\textwidth]{Images/Modelo_caja_negra.png}
     \label{fig:Modelo_caja_negra}
   \par\end{centering}
 \end{figure}
@@ -149,15 +149,15 @@ Al respecto, la descripción del procedimiento se muestra en la fig. \ref{fig:Mo
 Para la caracterización del sistema en modo refrigeración se utilizó una señal de entrada de tipo PWM con un ciclo útil del $100\%$ que corresponde con un voltaje de alimentación en las celdas Peltier de $12$ V y se registró la temperatura al interior de la caja durante 10 minutos, como se muestra en la cruva azul de la fig. \ref{fig:step_response}. Por otra parte, para la caracterización del sistema en modo calentamiento, la señal PWM utilizada tenía un ciclo útil del  $37\%$ correspondiente a un voltaje de alimentación en las celdas Peltier de $4.6~\mbox{V}$, su resultado se muestra en la curva naranja de la fig. \ref{fig:step_response}. Nótese que para el calentamiento no se utilizó el máximo ciclo útil debido a  que su efecto sobre el sistema es mucho más agresivo.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.7\textwidth]{Images/plant_response.eps}
     \caption{Respuestas del sistema a una entrada de tipo escalón. La curva azul corresponde a la  refrigeración y la naranja al calentamiento. En la forma de las curvas se puede observar tanto el retardo temporal como la forma exponencial de la respuesta en un sistema de primer orden.}
+  \includegraphics[width=0.7\textwidth]{Images/plant_response.eps}
     \label{fig:step_response}
   \par\end{centering}
 \end{figure}
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.7\textwidth]{Images/step}
     \caption{Respuestas del modelo FOPDT del sistema a una entrada de tipo escalón. La curva azul corresponde a la  refrigeración y la naranja al calentamiento.}
+  \includegraphics[width=0.7\textwidth]{Images/step}
     \label{fig:step_model_plant}
   \par\end{centering}
 \end{figure}
@@ -176,8 +176,8 @@ Con estas funciones de transferencia se graficó la respuesta del sistema ante u
 \subsubsection{Controlador PID.}
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.6\textwidth]{Images/DiagramaOnOff.png}
     \caption{Diagrama de bloques del sistema de control de temperatura.}
+    \includegraphics[width=0.6\textwidth]{Images/DiagramaOnOff.png}
     \label{fig:DiagramaOnOff}
   \par\end{centering}
 \end{figure}
@@ -190,8 +190,8 @@ Para mantener estable la temperatura dentro de la caja que contiene el SiPM fue 
 donde, $u_{1}(t)$ es la función escalón que representa una señal PWM con un ciclo útil de $100\%$ y hace que las celdas Peltier funcionen en modo refrigeración. Por otra parte, $u_{2}(t)$ es una función escalón que representa una señal PWM con un ciclo útil de $37\%$ y hace que las celdas Peltier funcionen en modo calentamiento. 
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.6\textwidth]{Images/ControlOnOff.eps}
     \caption{Respuesta del sistema con un controlador On-Off cuando se establece una temperatura objetivo de $5~^\circ \mbox{C}$. Esta respuesta presenta oscilaciones con un amplitud de $4.9~^\circ \mbox{C}$.}
+  \includegraphics[width=0.6\textwidth]{Images/ControlOnOff.eps}
     \label{fig:ControlOnOff}
   \par\end{centering}
 \end{figure}
@@ -254,8 +254,8 @@ Para el sistema de calentamiento se obtuvieron los siguientes parámetros del co
 En la figura \ref{fig:Respuesta_PID_c} se muestra la respuesta del sistema en el tiempo para las temperaturas objetivo de $30$, $40$ \mbox{y} $50~^\circ \mbox{C}$ durante $10$ minutos. Adicionalmente, en la tabla \ref{table_PID_c} se muestran los principales parámetros de respuesta del controlador para cada una de las temperaturas objetivo, donde se puede notar que el sistema logra establecerse en la temperatura objetivo en un tiempo menor a $534$ segundos, presentado un máximo sobreimpulso del $37,2\%$.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.7\textwidth]{Images/PID_calentamiento.eps}
     \caption{Respuesta del sistema de calentamiento con un controlador PID para temperaturas objetivo de 30 $^\circ $C (curva azul), 40 $^\circ $C (curva amarilla) y 50 $^\circ $C (curva roja).}
+    \includegraphics[width=0.7\textwidth]{Images/PID_calentamiento.eps}
     \label{fig:Respuesta_PID_c}
   \par\end{centering}
 \end{figure}
@@ -283,8 +283,8 @@ donde, $M_p$ corresponde al máximo sobreimpulso, $y_{max}$ es el valor máximo 
 Para el sistema de refrigeración se realizó el mismo proceso de sintonización utilizado en el sistema de calentamiento y se obtuvieron los siguientes parámetros del controlador: $k_P= 30.6;~k_I= 0.148;~k_D=100$. En la figura \ref{fig:Respuesta_PID_e} se observa la respuesta en el tiempo del sistema para temperaturas objetivo de $0, 10 ~\mbox{y}~20~^\circ\mbox{C}$ durante 10 minutos. Así, el sistema logra estabilizarse en cada unos de los casos y los parámetros de respuesta del controlador se muestran en la tabla \ref{table_PID_e}, donde se puede concluir que el sistema presenta un máximo sobreimpulso del $26,6\%$, un tiempo pico máximo de $486$ segundos y un tiempo de establecimiento máximo de $576$ segundos.\\
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.7\textwidth]{Images/PID_enfriamiento.eps}
     \caption{Respuesta del sistema de refrigeración con un controlador PID para temperaturas objetivo de 0 $^\circ $C (curva azul), 10 $^\circ $C (curva celeste) y 20 $^\circ $C (curva amarilla).}
+    \includegraphics[width=0.7\textwidth]{Images/PID_enfriamiento.eps}
     \label{fig:Respuesta_PID_e}
   \par\end{centering}
 \end{figure}
@@ -308,8 +308,8 @@ Para el sistema de refrigeración se realizó el mismo proceso de sintonización
 El segundo módulo de medición para el proceso de caracterización del voltaje de ruptura es el circuito de medición de corriente. La corriente que se necesita medir es la corriente oscura del  SiPM, esta corriente es del orden de los nanoamperios (nA). Según \citep{low_level} existen dos técnicas muy utilizadas para realizar mediciones de corriente: medición en derivación o ``\textit{shunt}'' ~y medición mediante un amplificador de transimpedancia o amperímetro realimentado.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.5\textwidth]{Images/Shunt.png}
     \caption{Topología de amperímetro tipo ``\textit{shunt}''. }
+    \includegraphics[width=0.5\textwidth]{Images/Shunt.png}
     \label{fig:shunt_circuit}
   \par\end{centering}
 \end{figure}
@@ -322,8 +322,8 @@ La salida del amplificador no inversor se calcula como:
 \end{eqnarray}
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.6\textwidth]{Images/feedback.png}
     \caption{Amperímetro de realimentación basado en un amplificador de transimpedancia  (TIA). }
+    \includegraphics[width=0.6\textwidth]{Images/feedback.png}
     \label{fig:feedback_circuit}
   \par\end{centering}
 \end{figure}
@@ -337,8 +337,8 @@ El principal requisito de operación es que el valor de \textit{offset} de la co
 En este trabajo se utilizó la topología tipo ``\textit{shunt}'', debido a que las corrientes que se deben medir son generadas por un SiPM que  se polariza con un voltaje en el rango de los 40 a 60 V y el voltaje de carga que se genera utilizando la topología tipo ``\textit{shunt}'' es de máximo 500 mV.%, adicionalmente esta topología es típica en mediciones de precisión de corriente \citep{low_level}  y sumado a que uno de los objetivos de este trabajo es desarrollar estos módulos de medición con componentes de bajo costo y de fácil  acceso.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.8\textwidth]{Images/ammeter.JPG}
     \caption{Circuito utilizado para el amperímetro tipo ``\textit{shunt}''. Compuesto por cuatro etapas, una etapa de conversión de corriente a voltaje, un búfer, un amplificador inversor y un filtro pasa bajas.  }
+   \includegraphics[width=0.8\textwidth]{Images/ammeter.JPG}
     \label{fig:ammeter}
   \par\end{centering}
 \end{figure}
@@ -362,15 +362,16 @@ El amplificador operacional utilizado para $A_1, A_2~\mbox{y}~A_3$ es el OPA4228
 Para el análisis de ruido se divide el circuito de medición de corriente en cada una de sus etapas, se identifican las fuentes de ruido y se calcula su contribución rms y pico-pico para el rango de frecuencia de interés ($0.1-2.1 $ Hz). El ruido dominante en este rango de frecuencias es el ruido flicker ($1/f$), por lo tanto para simplificar los cálculos se desprecia el ruido de banda ancha.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.6\textwidth]{Images/Noise_opa.JPG}
+
     \caption{Densidad espectral de ruido de entrada para corriente y voltaje del OPA4228. Adaptado de \citep{OPA_4228}. }
+    \includegraphics[width=0.6\textwidth]{Images/Noise_opa.JPG}
     \label{fig:noise_espectral}
   \par\end{centering}
 \end{figure}
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.35\textwidth]{Images/ammeter_buffer.JPG}
     \caption{Primera etapa del circuito de medición de corriente, compuesta por una resistencia de sensado y un búfer. }
+    \includegraphics[width=0.35\textwidth]{Images/ammeter_buffer.JPG}
     \label{fig:ammeter_buffer}
   \par\end{centering}
 \end{figure}
@@ -434,8 +435,8 @@ Finalmente, en la figura \ref{fig:Inoise} se muestra el resultado de la medició
 % \end{equation}
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=\textwidth]{Images/Inoise.eps}
     \caption{Medición de la corriente oscura del SiPM, utilizada para calcular la desviación estándar de las muestras en la medición de corriente.}
+    \includegraphics[width=\textwidth]{Images/Inoise.eps}
     \label{fig:Inoise}
   \par\end{centering}
 \end{figure}
@@ -461,8 +462,8 @@ Un módulo indispensable para cualquiera de los procedimientos de caracterizaci�
 \end{table}
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.8\textwidth]{Images/Source_module.PNG}
     \caption{Ejemplo de conexión del módulo C12332-01 de Hamamatsu (\textit{power supply circuit board}). Adaptado de \citep{Driver_mppc}. La fuente de polarización del SiPM se alimenta con una fuente externa de $\pm$5 V  y su configuración se realiza por medio me una interfaz USB.}
+   \includegraphics[width=0.8\textwidth]{Images/Source_module.PNG}
     \label{fig:conexion_driverMPPC}
   \par\end{centering}
 \end{figure}
@@ -471,8 +472,8 @@ Asimismo, en la figura \ref{fig:interfase} se muestra la interfaz  gráfica del 
 
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.7\textwidth]{Images/Source_Interfaz.PNG}
     \caption{Interfaz gráfica del \textit{software} que controla el módulo  C12332-01 de Hamamatsu, utilizado para polarizar los SiPM.}
+    \includegraphics[width=0.7\textwidth]{Images/Source_Interfaz.PNG}
     \label{fig:interfase}
   \par\end{centering}
 \end{figure}
@@ -485,8 +486,8 @@ El histograma de pico representa gráficamente la frecuencia de ocurrencia de ev
 Para implementar una fuente de luz pulsada de baja intensidad es necesario crear una fuente de pulsos de voltaje que activen un LED de 470 nm. La fuente de luz pulsada es  empleada para estimular el SiPM de forma controlada en los experimentos que permiten obtener el valor de 1 p.e, la ganancia y la probabilidad de los tipos de ruido. Según \citep{Deisgn_LED_driver} el ancho de estos pulsos debe ser del orden de 10 ns, esto para emular el tiempo de respuesta de los pulsos de luz emitidos por los centelladores plásticos usados en los detectores de partículas.  
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.7\textwidth]{Images/LED_circuit.PNG}
     \caption{Circuito utilizado para construcción de la fuente de luz pulsada, compuesto de dos etapas, una digital y otra analógica.}
+    \includegraphics[width=0.7\textwidth]{Images/LED_circuit.PNG}
     \label{fig:LED_circuit}
   \par\end{centering}
 \end{figure}
@@ -502,8 +503,8 @@ El comparador utiliza un voltaje de referencia que se puede variar mediante el p
 %\end{figure}
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.7\textwidth]{Images/LED_Pulse_max.PNG}
-    \caption{Forma de los pulsos generados. En azul el pulso que ingresa al comparador, en rojo el pulso de salida con su máxima amplitud (3.7 V) sin componente DC. El FWHM (anchura a media altura) es menor a 10 ns.} 
+    \caption{Forma de los pulsos generados. En azul el pulso que ingresa al comparador, en rojo el pulso de salida con su máxima amplitud (3.7 V) sin componente DC. El FWHM (anchura a media altura) es menor a 10 ns.}
+   \includegraphics[width=0.7\textwidth]{Images/LED_Pulse_max.PNG}
     \label{fig:LED_Pulse_max}
   \par\end{centering}
 \end{figure}
@@ -519,8 +520,8 @@ En la figura \ref{fig:LED_PCB} se muestra el circuito impreso en el que se imple
 %\end{figure}
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.5\textwidth]{Images/LED_PCB.jpg}
     \caption{Circuito impreso con la implementación del amplificador comparador. Esta PCB se conecta a la FPGA para conformar la fuente de luz pulsada. }
+    \includegraphics[width=0.5\textwidth]{Images/LED_PCB.jpg}
     \label{fig:LED_PCB}
   \par\end{centering}
 \end{figure}
@@ -529,8 +530,8 @@ En la figura \ref{fig:LED_PCB} se muestra el circuito impreso en el que se imple
 Para el registro y almacenamiento de los pulsos de los SiPM, en las pruebas en las que éstos se estimulan con la fuente de luz pulsada, se utiliza una Red Pitaya STEMlab 125-14. Esta es un tarjeta de desarrollo del tipo SBC (single-board computer) basada en un sistema operativo Linux, cuenta con una FPGA Xilinx Zynq 7010 SOC, un procesador Dual-Core ARM Cortex-A9 y una memora RAM de 4 Gb. Permite la adquisición, generación y procesamiento digital de señales de alta frecuencia. En la figura \ref{fig:Red_pitaya} se muestran sus principales características.   
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.8\textwidth]{Images/Red_pitaya.PNG}
     \caption{Red pitaya utilizada para la adquisición y almacenamiento de los  pulsos de los SiPM.}
+    \includegraphics[width=0.8\textwidth]{Images/Red_pitaya.PNG}
     \label{fig:Red_pitaya}
   \par\end{centering}
 \end{figure}
@@ -540,8 +541,8 @@ desde el cual se puede configurar la frecuencia de muestreo, el número de event
 La configuración experimental utilizada para el registro de datos se muestra en la fig. \ref{fig:Data_system}. Por otra parte, el acceso remoto a la red pitaya se realiza por medio de un protocolo SSH (Secure Shell) y el procesamiento y análisis de los datos adquiridos se realiza \textit{off-line}. 
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.6\textwidth]{Images/LED_diagrama.PNG}
     \caption{Diagrama del montaje utilizado para para registrar los eventos en el SiPM cuando este se estimula con la fuente de luz pulsada.}
+    \includegraphics[width=0.6\textwidth]{Images/LED_diagrama.PNG}
     \label{fig:Data_system}
   \par\end{centering}
 \end{figure}
@@ -550,20 +551,20 @@ La configuración experimental utilizada para el registro de datos se muestra en
 Tanto el ruido correlacionado (\textit{crosstalk} y \textit{afterpulses}) como el no correlacionado (DCR) se obtienen del procesamiento de los datos registrados a partir de la configuración experimental mostrada en la fig. \ref{fig:Data_system}. El análisis de estos datos se realizó utilizando Python dentro del entorno de trabajo Jupyter\footnote{https://github.com/juanvillafrades/Caracterizacion-SiPMs/blob/master/Noise.ipynb}. Este procesamiento, consiste en primera medida, en un algoritmo que realiza un filtrado de los pulsos eliminando cualquier tipo de ruido debido a interferencias electromagnéticas, posteriormente se realiza una corrección de linea base (\textit{offset}) como se muestra en la fig. \ref{fig:PulsesNoise}.  
 \begin{figure}[h!]
      \centering
+        \caption{Pulsos de voltaje de un SiPM antes y después del preprocesamiento para filtrar ruido por interferencias electromagnéticas y eliminar el \textit{offset}.}
      \begin{subfigure}[b]{0.48\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Images/Pulse_noise.eps}
-         \caption{}
+         %\caption{}
          \label{fig:PulsesNoise1}
      \end{subfigure}
      %\hfill
      \begin{subfigure}[b]{0.48\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Images/Pulse_filter.eps}
-         \caption{}
+         %\caption{}
          \label{fig:PulsesNoise2}
      \end{subfigure}
-        \caption{Pulsos de voltaje de un SiPM antes y después del preprocesamiento para filtrar ruido por interferencias electromagnéticas y eliminar el \textit{offset}.}
         \label{fig:PulsesNoise}
 \end{figure}
 \\ \\

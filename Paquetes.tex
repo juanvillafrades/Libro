@@ -254,22 +254,20 @@
 % Librerías que permiten modificar atributos de la tabla de contenido
 % ------------------------------------------------------------------------
 \usepackage{titletoc}
-\usepackage[subfigure]{tocloft}
+%\usepackage[subfigure]{tocloft}
 
-%%%%%%%%%%%%%% REFERENCIAS %%%%%%%%%%%
-
+% ------------------------------------------------------------------------
+% Bibliografía
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
 %\usepackage{cite} % para contraer referencias
-\usepackage[sort&compress]{natbib} % para contraer referencias de texto
-%\usepackage{natbib}
+%\usepackage[sort&compress]{natbib} % para contraer referencias de texto
+\usepackage{natbib}
 %\usepackage{apacite}
 %%%%%%%%%%%%%% Texto en la misma linea %%%%%%%%%%%
+\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection. }{0pt}{}
 \titleformat{\subsection}[runin]
   {\normalfont\large\bfseries}{\thesubsection}{1em}{}
 
 \titleformat{\subsubsection}[runin]
   {\normalfont\large\bfseries}{\thesubsubsection}{1em}{}
-  
-  
-%\usepackage{biblatex}
-
-%\usepackage{bibunits}

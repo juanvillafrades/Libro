@@ -19,8 +19,9 @@ Los fotomultiplicadores de silicio son fotodetectores de estado sólido, comúnm
 Es la estructura fundamental de los dispositivos semiconductores, su estudio permite comprender el funcionamiento de los SiPMs. Esta unión se forma al combinar en una región un material tipo P con otro tipo N. En la interfaz entre estas secciones se genera un gradiente de concentraciones de huecos y electrones y aparece una corriente de difusión que hace que los electrones de la zona N se desplacen a la zona P y los huecos de la zona P vayan a la zona N. El proceso de esta recombinación en la unión PN genera la llamada zona de deflección y las cargas agrupadas en esta zona generan un campo eléctrico que se opone a la corriente de difusión y hace que la unión entre en equilibrio, como se muestra en la fig. \ref{fig:PNjuntion}.
 \begin{figure}[h!]
 \begin{centering}
+  \caption{Evolución de las concentraciones de carga en la unión PN.}
   \includegraphics[width=0.5\textwidth]{Images/UnionPN.eps}
-  \caption{Evolución de las concentraciones de carga en la unión PN. Adaptado de \citep{Book_razavi}.}
+  \caption*{Fuente: \citep{Book_razavi}}
   \label{fig:PNjuntion}
   \par\end{centering}
 \end{figure}
@@ -57,8 +58,9 @@ Cuando aumenta el voltaje inverso aplicado en la unión PN, también lo hace el 
 En la figura \ref{fig:APD_gain} se muestra el comportamiento típico de la ganancia en un APD en función del voltaje inverso. En esta gráfica se pueden identificar tres regiones: la primera para voltajes mayores a $50$~V (A); la segunda para voltajes entre $50$ y $100$~V (B) y la tercera para voltajes mayores a $100$~V (C). En la región B la ganancia es lineal con un campo eléctrico moderado, que permite obtener una relación directa entre la entrada (fotones) y la salida (corriente). Sin embargo, en la región C se observa que la ganancia pierde su linealidad y aumenta de forma exponencial cuando se acerca a $150$ V. El voltaje  donde la ganancia tiende a infinito se denomina voltaje de ruptura ($V_{BD}$). En este punto la avalancha generada no puede detenerse así misma, causando que un único fotón genere un pulso Geiger.%quien junto con Walter M\"uller desarrolló el tubo G-M utilizado para la detección de radiación ionizante.\\ \\
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.5\textwidth]{Images/GAPD_gain.JPG}
   \caption{Ganancia del APD en función del voltaje de polarización inverso donde se pueden observar las regiones de operación del dispositivo. Adaptado de \citep{MPPC_note}.}
+  \includegraphics[width=0.5\textwidth]{Images/GAPD_gain.JPG}
+  \caption*{Fuente:}
   \label{fig:APD_gain}
   \par\end{centering}
 \end{figure}
@@ -67,8 +69,8 @@ Un APD operando en modo Geiger se conoce como GAPD. Este dispositivo se caracter
 En los GAPD la señal de salida del sensor (amplitud de la avalancha) no es proporcional a la entrada (fotones), por lo tanto a partir de un GAPD no se puede determinar si lo que generó la avalancha fue uno, dos o \textit{n} fotones. La carga generada por la avalancha está determinada únicamente por la ganancia del GAPD que  depende del voltaje de polarización.     
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.5\textwidth]{Images/GAPD_model.JPG}
     \caption{Modelo eléctrico de un GAPD, este modelo corresponde a un circuito RC en serie. La conexión eléctrica típica del GAPD es con una resistencia de apagado y una fuente de polarización en serie.}
+    \includegraphics[width=0.5\textwidth]{Images/GAPD_model.JPG}
     \label{fig:APD_model}
   \par\end{centering}
 \end{figure}
@@ -80,8 +82,8 @@ El modelo eléctrico  de un GAPD está compuesto por una resistencia en serie co
 donde, $V_d$ es el voltaje en el capacitor, $R_q$ es la resistencia de apagado y $R_s$ representa el comportamiento resistivo del GAPD.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.6\textwidth]{Images/GAPD_response.JPG}
     \caption{Forma de un pulso de corriente generado por un GAPD. Esta forma típica corresponde a la corriente de carga y descarga de un capacitor en un circuito RC en serie.}
+    \includegraphics[width=0.6\textwidth]{Images/GAPD_response.JPG}
     \label{fig:APD_response}  
   \par\end{centering}
 \end{figure}
@@ -93,8 +95,9 @@ Como se mencionó en la sección anterior, a partir de un GAPD no se puede deter
 Como estos píxeles se encuentran conectados en paralelo la respuesta del SiPM es la suma de las avalanchas generadas por cada píxel activado, lo que produce una salida que es directamente proporcional al número de fotones incidentes, siempre y cuando este número no sea superior al número de píxeles con que cuenta el SiPM. El pulso de menor amplitud que se puede observar a la salida de un SiPM es conocido como fotón equivalente (p.e.) y es un parámetro que experimentalmente se utiliza para determinar la ganancia, conteo oscuro, \textit{crosstalk} y \textit{afterpulse} de un SiPM.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.75\textwidth]{Images/APD_array.PNG}
     \caption{Estructura de un SiPM, compuesto por microceldas de GAPDs conectadas en paralelo. Adaptado de \citep{Muon_counting_Amiga}.}
+    \includegraphics[width=0.75\textwidth]{Images/APD_array.PNG}
+    \caption*{Fuente:}
     \label{fig:APD_array}  
   \par\end{centering}
 \end{figure}
@@ -102,8 +105,9 @@ Como estos píxeles se encuentran conectados en paralelo la respuesta del SiPM e
 En la figura. \ref{fig:APD_array} se observa la matriz de píxeles de un SiPM, donde cada una de estas microceldas se activan simultáneamente para generar una corriente proporcional a los fotones incidentes. El tamaño de estos píxeles para SiPMs comerciales normalmente es de 25, 50 y 75 $\mu$m, como se muestra en la fig. \ref{fig:APD_pitch}.     
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.5\textwidth]{Images/SiPM_pixel.PNG}
     \caption{Microcelda (píxel) de un SiPM, donde se observa el área fotosensible y la resistencia de apagado al rededor de esta. Adaptado de \citep{MPPC_note}.}
+    \includegraphics[width=0.5\textwidth]{Images/SiPM_pixel.PNG}
+    \caption*{Fuente:}
     \label{fig:APD_pitch}  
   \par\end{centering}
 \end{figure}
@@ -118,8 +122,8 @@ V_{OV} = V_{Bias}-V_{BD}.
 Típicamente, el fabricante suministra el valor de sobre-voltaje al que se debe someter el dispositivo, en el caso del SiPM S13360-1350CS de Hamamatsu el valor es $ 3~\mbox{V}$.
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.7\textwidth]{Images/overvoltaje.eps}
     \caption{Corriente oscura como función del voltaje de polarización a $25~^\circ C$, para el SiPM  S13360-1350CS de Hamamatsu. El sobre-voltaje es la diferencia entre el voltaje de polarización y el voltaje de ruptura.}
+  \includegraphics[width=0.7\textwidth]{Images/overvoltaje.eps}
     \label{fig:Overvoltage}  
   \par\end{centering}
 \end{figure}
@@ -139,8 +143,9 @@ donde, FF es el factor de llenado y  se define como la relación ente el área s
 
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=0.5\textwidth]{Images/PDE.PNG}
     \caption{PDE en función de la longitud de onda para la serie S13360 de Hamamatsu. Adaptado de \citep{Sipm_S13360_1350CS_datasheet}.}
+    \includegraphics[width=0.5\textwidth]{Images/PDE.PNG}
+    \caption*{Fuente:}
     \label{fig:PDE}  
   \par\end{centering}
 \end{figure}
@@ -159,8 +164,9 @@ Por otra parte, para el análisis de ruido en DC es conveniente medir el ruido n
 El ruido correlacionado está dividido en \textit{crosstalk} y \textit{afterpulses}. El \textit{crosstalk} es causado porque los electrones que  son acelerados por el campo eléctrico en el proceso de avalancha pueden emitir fotones (infrarrojos), estos fotones viajan a las microceldas adyacentes ocasionando una avalancha secundaria. Según \citep{charct_noise} si los pulsos producidos en este proceso son simultáneos, o con un tiempo de retardo menor a 100 ps del pulso primario, son denominados \textit{crosstalk} directo y sus amplitudes son de 2 p.e, como se muestra en la fig. \ref{fig:noise}b. Por otra parte, si el retardo es mucho mayor a 100 ps se denomina  {crosstalk} retardado y su amplitud es del orden de 1 p.e, como se observa en \ref{fig:noise}c. 
 \begin{figure}[h!]
 \begin{centering}
-  \includegraphics[width=\textwidth]{Images/Pulses_with_noise.PNG}
     \caption{Representación de amplitud y distribución temporal de pulsos sin ruido (a), con \textit{crosstalk} directo (b), \textit{crosstalk} retardado (c)  y \textit{afterpulses} (d) en un SiPM. Adaptado de \citep{charct_noise}. Se puede observar que después de  $0.1~\mu$s la frecuencia en los tipos de ruido disminuye considerablemente.}
+    \includegraphics[width=\textwidth]{Images/Pulses_with_noise.PNG}
+    \caption*{Fuente:}
     \label{fig:noise}  
   \par\end{centering}
 \end{figure}
