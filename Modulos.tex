@@ -1,9 +1,9 @@
 \chapter{MÓDULOS DE MEDICIÓN}
 \label{Cap:Modulos}
-Actualmente los SiPM juegan un importante rol en el campo de la física de altas energías \citep{Intro_SIPM_Sensl}, su estudio y caracterización toma cada vez más relevancia. Sin embargo, los equipos electrónicos para realizar dichos procedimientos son muy costosos y de difícil acceso, es por eso que en este proyecto se propone desarrollar un conjunto de módulos enfocados en la caracterización del voltaje de ruptura, la ganancia, el equivalente de un fotoelectrón y el ruido de SiPMs.  
+Actualmente los SiPM juegan un importante rol en el campo de la física de altas energías \footcite{Intro_SIPM_Sensl}, su estudio y caracterización toma cada vez más relevancia. Sin embargo, los equipos electrónicos para realizar dichos procedimientos son muy costosos y de difícil acceso, es por eso que en este proyecto se propone desarrollar un conjunto de módulos enfocados en la caracterización del voltaje de ruptura, la ganancia, el equivalente de un fotoelectrón y el ruido de SiPMs.  
 \section{VOLTAJE DE RUPTURA EN FUNCIÓN DE LA TEMPERATURA}
 Para la caracterización del voltaje de ruptura y de otros parámetros de rendimiento de los SiPMs que dependen de la temperatura, fue necesario diseñar e implementar un sistema de temperatura controlada. Este sistema está compuesto de celdas Peltier y un control que efectúa el calentamiento y la refrigeración del interior de una caja donde se ubica el SiPM a caracterizar.\\ \\
-Por otra parte, debido a que el  voltaje de ruptura se obtiene a partir de la corriente oscura fue necesario diseñar e  implementar un circuito para medir la corriente del SiPM (del orden de nA) basado en un amplificador de transimpedancia (TIA). La polarización del SiPM se realizó mediante el módulo C11204-01 de Hamamatsu \citep{Driver_mppc}. En la figura \ref{fig:complete_system} se muestra el sistema completo utilizado para el proceso de caracterización del voltaje de ruptura.
+Por otra parte, debido a que el  voltaje de ruptura se obtiene a partir de la corriente oscura fue necesario diseñar e  implementar un circuito para medir la corriente del SiPM (del orden de nA) basado en un amplificador de transimpedancia (TIA). La polarización del SiPM se realizó mediante el módulo C11204-01 de Hamamatsu \footcite{Driver_mppc}. En la figura \ref{fig:complete_system} se muestra el sistema completo utilizado para el proceso de caracterización del voltaje de ruptura.
 \begin{figure}[h!]
 \begin{centering}
   \caption{Sistema utilizado para la caracterización del voltaje de ruptura en función de la temperatura. En este sistema se utiliza un módulo de control de temperatura y uno de medición de corriente DC.}
@@ -24,19 +24,19 @@ El sistema de control de temperatura está compuesto por tres partes principales
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Módulos Peltier.}
-Su principio de funcionamiento es el efecto Peltier, descubierto en $1834$ por el físico francés Jean Charles Athanase Peltier, pero su aplicación práctica necesitó del desarrollo de los materiales semiconductores \citep{Sandoval2007}. Este efecto se caracteriza por la absorción o producción de calor en las caras de un semiconductor cuando una corriente eléctrica directa fluye a través de éste. \\ \\
-Una celda Peltier está compuesta por  dos semiconductores con dopaje diferente (tipo-N y tipo-P) y una placa metálica entre estos. La dirección de la corriente eléctrica determina si el área se calienta o se enfría \citep{peltier_theory}, el calor generado mediante este efecto por unidad de tiempo está determinado por:
+Su principio de funcionamiento es el efecto Peltier, descubierto en $1834$ por el físico francés Jean Charles Athanase Peltier, pero su aplicación práctica necesitó del desarrollo de los materiales semiconductores \footcite{Sandoval2007}. Este efecto se caracteriza por la absorción o producción de calor en las caras de un semiconductor cuando una corriente eléctrica directa fluye a través de éste. \\ \\
+Una celda Peltier está compuesta por  dos semiconductores con dopaje diferente (tipo-N y tipo-P) y una placa metálica entre estos. La dirección de la corriente eléctrica determina si el área se calienta o se enfría \footcite{peltier_theory}, el calor generado mediante este efecto por unidad de tiempo está determinado por:
 \begin{equation}
 Q_{Pe}=(\Pi_{A}-\Pi_{B})\cdot I,
 \label{peltier_eq}
 \end{equation}
 donde, $\Pi_{(A,B)}$ son los coeficientes Peltier de cada semiconductor e $I$ es la corriente eléctrica.\\ \\
 La figura \ref{fig:celda} muestra la estructura interna de una Celda Peltier, donde se observa la configuración de los semiconductores y la absorción o producción de calor en función de la dirección de la corriente eléctrica a través de la celda.\\ \\
-Para este trabajo se utilizó una celda Peltier TEC1-12706 \citep{datasheet_Peltier}. Sus parámetros son los siguientes: tensión máxima de $16.4~\mbox{V}$, corriente máxima de $6.4~\mbox{A}$, máxima capacidad de disipación de potencia 57 W y una máxima diferencia de temperatura entre la cara fría y la caliente de 75 $^\circ \mbox{C}$.
+Para este trabajo se utilizó una celda Peltier TEC1-12706 \footcite{datasheet_Peltier}. Sus parámetros son los siguientes: tensión máxima de $16.4~\mbox{V}$, corriente máxima de $6.4~\mbox{A}$, máxima capacidad de disipación de potencia 57 W y una máxima diferencia de temperatura entre la cara fría y la caliente de 75 $^\circ \mbox{C}$.
 
 \begin{figure}[h!]
 \begin{centering}
-    \caption{Estructura interna de una celda Peltier. La dirección de la corriente (flecha roja) determina cuál de las caras absorbe o genera calor. Imagen adaptada de \citep{tesis_caract_SIPM}.}
+    \caption{Estructura interna de una celda Peltier. La dirección de la corriente (flecha roja) determina cuál de las caras absorbe o genera calor. Imagen adaptada de \footcite{tesis_caract_SIPM}.}
     \includegraphics[width=0.45\textwidth]{Images/celda.JPG}
     \label{fig:celda}
   \par\end{centering}
@@ -197,7 +197,7 @@ donde, $u_{1}(t)$ es la función escalón que representa una señal PWM con un c
 \end{figure}
 \\ \\
 En la figura \ref{fig:ControlOnOff} se muestra el resultado de la implementación del control On-Off. Se puede observar como el sistema llega a su temperatura objetivo en $270$ segundos y a partir de este punto comienza a realizar oscilaciones con una brecha diferencial de $4.9~^\circ \mbox{C}$. Esto representa un rango de variación muy amplio y hace que este tipo de controlador no sea la mejor opción para este caso. Por lo tanto, se plantea la necesidad de implementar un controlador de tipo Proporcional Integral Derivativo.\\ \\
-El controlador  Proporcional Integral Derivativo (PID) es el algoritmo de control más implementado en automatización de procesos industriales \citep{Astrom}. Este  utiliza el principio de realimentación, que consiste en comparar la salida del sistema con un nivel de referencia y emplear esta diferencia para realizar una acción de control. Este tipo de realimentación se denomina realimentación negativa porque la variable manipulada es opuesta a la variable del proceso. Es decir, cuando la variable del proceso es mucho más pequeña que el punto de ajuste se incrementa la variable manipulada, mientras que cuando la variable del proceso es más grande que el punto de ajuste se disminuye la variable manipulada. Entre sus principales ventajas se encuentra el hecho de hacer que la variable  de proceso se acerque al punto de ajuste,  incluso ante perturbaciones y variaciones.\\ \\
+El controlador  Proporcional Integral Derivativo (PID) es el algoritmo de control más implementado en automatización de procesos industriales \footcite{Astrom}. Este  utiliza el principio de realimentación, que consiste en comparar la salida del sistema con un nivel de referencia y emplear esta diferencia para realizar una acción de control. Este tipo de realimentación se denomina realimentación negativa porque la variable manipulada es opuesta a la variable del proceso. Es decir, cuando la variable del proceso es mucho más pequeña que el punto de ajuste se incrementa la variable manipulada, mientras que cuando la variable del proceso es más grande que el punto de ajuste se disminuye la variable manipulada. Entre sus principales ventajas se encuentra el hecho de hacer que la variable  de proceso se acerque al punto de ajuste,  incluso ante perturbaciones y variaciones.\\ \\
 Un controlador PID, cuenta con tes partes principales: en primer lugar, una parte proporcional que consiste en el producto entre el error $e(t)$ y la constante proporcional $k_P$. Este término define la rapidez con que la salida del sistema se acerca al punto de ajuste; pero, para valores muy grandes de $k_P$, hace que la salida del sistema oscile y presente grandes sobreimpulsos.
 $$
 u_P(t)=k_{P}\cdot e(t).  
@@ -305,7 +305,7 @@ Para el sistema de refrigeración se realizó el mismo proceso de sintonización
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Circuito de medición de corriente.}
-El segundo módulo de medición para el proceso de caracterización del voltaje de ruptura es el circuito de medición de corriente. La corriente que se necesita medir es la corriente oscura del  SiPM, esta corriente es del orden de los nanoamperios (nA). Según \citep{low_level} existen dos técnicas muy utilizadas para realizar mediciones de corriente: medición en derivación o ``\textit{shunt}'' ~y medición mediante un amplificador de transimpedancia o amperímetro realimentado.
+El segundo módulo de medición para el proceso de caracterización del voltaje de ruptura es el circuito de medición de corriente. La corriente que se necesita medir es la corriente oscura del  SiPM, esta corriente es del orden de los nanoamperios (nA). Según \footcite{low_level} existen dos técnicas muy utilizadas para realizar mediciones de corriente: medición en derivación o ``\textit{shunt}'' ~y medición mediante un amplificador de transimpedancia o amperímetro realimentado.
 \begin{figure}[h!]
 \begin{centering}
     \caption{Topología de amperímetro tipo ``\textit{shunt}''. }
@@ -334,7 +334,7 @@ El principal requisito de operación es que el valor de \textit{offset} de la co
     V_o= -I_{IN} R_F.
 \end{equation}{}
 \\ \\
-En este trabajo se utilizó la topología tipo ``\textit{shunt}'', debido a que las corrientes que se deben medir son generadas por un SiPM que  se polariza con un voltaje en el rango de los 40 a 60 V y el voltaje de carga que se genera utilizando la topología tipo ``\textit{shunt}'' es de máximo 500 mV.%, adicionalmente esta topología es típica en mediciones de precisión de corriente \citep{low_level}  y sumado a que uno de los objetivos de este trabajo es desarrollar estos módulos de medición con componentes de bajo costo y de fácil  acceso.
+En este trabajo se utilizó la topología tipo ``\textit{shunt}'', debido a que las corrientes que se deben medir son generadas por un SiPM que  se polariza con un voltaje en el rango de los 40 a 60 V y el voltaje de carga que se genera utilizando la topología tipo ``\textit{shunt}'' es de máximo 500 mV.%, adicionalmente esta topología es típica en mediciones de precisión de corriente \footcite{low_level}  y sumado a que uno de los objetivos de este trabajo es desarrollar estos módulos de medición con componentes de bajo costo y de fácil  acceso.
 \begin{figure}[h!]
 \begin{centering}
     \caption{Circuito utilizado para el amperímetro tipo ``\textit{shunt}''. Compuesto por cuatro etapas, una etapa de conversión de corriente a voltaje, un búfer, un amplificador inversor y un filtro pasa bajas.  }
@@ -363,7 +363,7 @@ Para el análisis de ruido se divide el circuito de medición de corriente en ca
 \begin{figure}[h!]
 \begin{centering}
 
-    \caption{Densidad espectral de ruido de entrada para corriente y voltaje del OPA4228. Adaptado de \citep{OPA_4228}. }
+    \caption{Densidad espectral de ruido de entrada para corriente y voltaje del OPA4228. Adaptado de \footcite{OPA_4228}. }
     \includegraphics[width=0.6\textwidth]{Images/Noise_opa.JPG}
     \label{fig:noise_espectral}
   \par\end{centering}
@@ -420,7 +420,7 @@ El ruido total es:
      E_{nt}(pp)&=& 6\times E_{nt}(rms)= 66.22~\mu V_{pp}.
      %E_{nt}(pp)&=& 66.22~\mu V_{pp}
 \end{eqnarray}
-Como se observa en la expresión \ref{ruido_total} el término $E_{niflicker}$ es dominante para valores muy grandes de $R_s$ \citep{noise_source}, por lo tanto los otros términos se pueden despreciar.\\ \\
+Como se observa en la expresión \ref{ruido_total} el término $E_{niflicker}$ es dominante para valores muy grandes de $R_s$ \footcite{noise_source}, por lo tanto los otros términos se pueden despreciar.\\ \\
 Si se analizan las siguientes etapas del circuito de medición de corriente, la más crítica es la que tiene mayor ganancia (10). En esta etapa la resistencia equivalente que genera un ruido de voltaje referido  a la entrada es $R_3||R_4$ ($0.9~k\Omega$). De esta forma el ruido térmico es despreciable y el ruido de voltaje es el mismo que en la primer etapa  ($11,027~nV_{rms}$), igualmente despreciable. Asimismo, el ruido de voltaje relacionado con el paso del ruido de corriente por $R_3||R_4$ es despreciable comparado con el ruido de voltaje total en la primera etapa. Esto debido a el bajo valor de esta resistencia equivalente y la baja ganancia del ruido (101).\\\\
 Por último, el ruido de voltaje referido a la salida del medidor de corriente es igual a el ruido en la primera etapa multiplicado por la ganancia de la segunda etapa.
 \begin{equation}
@@ -462,7 +462,7 @@ Un módulo indispensable para cualquiera de los procedimientos de caracterizaci�
 \end{table}
 \begin{figure}[h!]
 \begin{centering}
-    \caption{Ejemplo de conexión del módulo C12332-01 de Hamamatsu (\textit{power supply circuit board}). Adaptado de \citep{Driver_mppc}. La fuente de polarización del SiPM se alimenta con una fuente externa de $\pm$5 V  y su configuración se realiza por medio me una interfaz USB.}
+    \caption{Ejemplo de conexión del módulo C12332-01 de Hamamatsu (\textit{power supply circuit board}). Adaptado de \footcite{Driver_mppc}. La fuente de polarización del SiPM se alimenta con una fuente externa de $\pm$5 V  y su configuración se realiza por medio me una interfaz USB.}
    \includegraphics[width=0.8\textwidth]{Images/Source_module.PNG}
     \label{fig:conexion_driverMPPC}
   \par\end{centering}
@@ -483,7 +483,7 @@ Asimismo, en la figura \ref{fig:interfase} se muestra la interfaz  gráfica del 
 Para obtener el fotón equivalente (p.e.) y la ganancia del los SiPMs es necesario generar los histogramas de pico y de carga. Estos histogramas se pueden obtener mediante el análisis de los pulsos del SiPM cuando se realiza una estimulación controlada del dispositivo utilizando una fuente de luz pulsada.\\ \\
 El histograma de pico representa gráficamente la frecuencia de ocurrencia de eventos con determinados valores máximos de voltaje, este histograma se caracteriza por tener picos que representan el número de fotones equivalentes, por consiguiente 1 p.e. está definido como la distancia entre dos picos consecutivos. Por otra parte, el histograma de carga se obtiene al realizar la integración numérica de los pulsos de corriente del SiPM, la diferencia entre los picos de este histograma es la carga en Coulombs de un pulso Geiger. Esta carga está directamente relacionada con la ganancia mediante la expresión \ref{Gain_eq}.       
 \subsection{Fuente de luz pulsada.}
-Para implementar una fuente de luz pulsada de baja intensidad es necesario crear una fuente de pulsos de voltaje que activen un LED de 470 nm. La fuente de luz pulsada es  empleada para estimular el SiPM de forma controlada en los experimentos que permiten obtener el valor de 1 p.e, la ganancia y la probabilidad de los tipos de ruido. Según \citep{Deisgn_LED_driver} el ancho de estos pulsos debe ser del orden de 10 ns, esto para emular el tiempo de respuesta de los pulsos de luz emitidos por los centelladores plásticos usados en los detectores de partículas.  
+Para implementar una fuente de luz pulsada de baja intensidad es necesario crear una fuente de pulsos de voltaje que activen un LED de 470 nm. La fuente de luz pulsada es  empleada para estimular el SiPM de forma controlada en los experimentos que permiten obtener el valor de 1 p.e, la ganancia y la probabilidad de los tipos de ruido. Según \footcite{Deisgn_LED_driver} el ancho de estos pulsos debe ser del orden de 10 ns, esto para emular el tiempo de respuesta de los pulsos de luz emitidos por los centelladores plásticos usados en los detectores de partículas.  
 \begin{figure}[h!]
 \begin{centering}
     \caption{Circuito utilizado para construcción de la fuente de luz pulsada, compuesto de dos etapas, una digital y otra analógica.}
@@ -509,7 +509,7 @@ El comparador utiliza un voltaje de referencia que se puede variar mediante el p
   \par\end{centering}
 \end{figure}
 \\ \\
-La técnica utilizada para el generador de pulsos se basa en \citep{Pulses_CFA}. Esta la idea consiste en usar un amplificador con realimentación de corriente como comparador. En este caso, el amplificador seleccionado es el OPA2695 de Texas Instruments, el criterio de selección fue el \textit{slew rate} y la corriente de salida que para este amplificador son $2900~\mbox{V}/\mu$s y 120 mA, respectivamente. Por otra parte, para generar los pulsos de luz se utilizó un LED azul difuso de 5 mm que emite fotones con una longitud de onda de 470 nm (longitud de onda de emisión típica en centelladores) y funciona con una corriente  de 30 mA. \\ \\
+La técnica utilizada para el generador de pulsos se basa en \footcite{Pulses_CFA}. Esta la idea consiste en usar un amplificador con realimentación de corriente como comparador. En este caso, el amplificador seleccionado es el OPA2695 de Texas Instruments, el criterio de selección fue el \textit{slew rate} y la corriente de salida que para este amplificador son $2900~\mbox{V}/\mu$s y 120 mA, respectivamente. Por otra parte, para generar los pulsos de luz se utilizó un LED azul difuso de 5 mm que emite fotones con una longitud de onda de 470 nm (longitud de onda de emisión típica en centelladores) y funciona con una corriente  de 30 mA. \\ \\
 En la figura \ref{fig:LED_PCB} se muestra el circuito impreso en el que se implementó la fuente de luz pulsada, este módulo cuenta con un conector tipo MOD que le permite acoplarse a la FPGA. Así mismo, se utilizan conectores  SMA tipo hembra para los cables coaxiales RG59 de 50 Ohmios que llevan la señal de disparo y la señal que se retarda temporalmente, además se emplean conectores molex para el LED, el voltaje de polarización y el potenciómetro.
 %\begin{figure}[h!]
 %    \caption{}

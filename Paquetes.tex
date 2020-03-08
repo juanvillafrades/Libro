@@ -259,10 +259,23 @@
 % ------------------------------------------------------------------------
 % Bibliografía
 % ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
+\usepackage[hyperref=true,
+            citereset=none,
+            url=false,
+            isbn=false,
+            backref=true,
+            style=verbose-note,
+            dashed=true,
+            maxcitenames=3,
+            maxbibnames=3,
+            backend=bibtex,
+            block=none,
+            defernumbers=true]{biblatex}
+\addbibresource{Tesis.bib}         
+
 %\usepackage{cite} % para contraer referencias
 %\usepackage[sort&compress]{natbib} % para contraer referencias de texto
-\usepackage{natbib}
+%\usepackage{natbib} %anterior
 %\usepackage{apacite}
 %%%%%%%%%%%%%% Texto en la misma linea %%%%%%%%%%%
 \titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection. }{0pt}{}
